@@ -16,8 +16,8 @@ def deserialize_car_object(json: bytes) -> Car:
     serializer = CarSerializer(data=data)
     if serializer.is_valid():
         car = Car(**serializer.validated_data)
-        if 'id' in data:
-            car.id = data['id']
+        if "id" in data:
+            car.id = data["id"]
         return car
     else:
         raise ValueError(f"Invalid data: {serializer.errors}")
